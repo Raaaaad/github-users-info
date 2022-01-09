@@ -1,0 +1,15 @@
+Endpoint returning list of repos and stars for given user.
+---
+parameters:
+  - name: username
+    in: path
+    type: string
+    required: true
+    description: GitHub username
+responses:
+  200:
+    description: A list of objects containing repo name and number of its stars.
+  404:
+    description: User not found.
+  500:
+    description: Internal server error.
