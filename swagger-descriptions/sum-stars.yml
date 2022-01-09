@@ -1,0 +1,15 @@
+Endpoint returning sum of repository stars for given user.
+---
+parameters:
+  - name: username
+    in: path
+    type: string
+    required: true
+    description: Github username
+responses:
+  200:
+    description: JSON containing a sum of stars.
+  404:
+    description: User not found.
+  500:
+    description: Internal server error.

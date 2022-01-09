@@ -1,0 +1,15 @@
+Endpoint returning the most popular languages used by a specific user.
+---
+parameters:
+  - name: username
+    in: path
+    type: string
+    required: true
+    description: Github username
+responses:
+  200:
+    description: JSON describing the most popular languages.
+  404:
+    description: User not found.
+  500:
+    description: Internal server error.

@@ -1,12 +1,15 @@
 import requests
 import json
 from flask import Flask
+from flasgger import Swagger
+from flasgger.utils import swag_from
 
 app = Flask(__name__)
 api_users_string = 'https://api.github.com/users'
 
 
 @app.route('/repos/<username>')
+@swag_from('./swagger-descriptions/list-repos.yml')
 def list_repos(username):
     gh_request = requests.get(f'{api_users_string}/{username}/repos')
     if gh_request.status_code == 404:
@@ -22,6 +25,7 @@ def list_repos(username):
 
 
 @app.route('/stars/<username>')
+@swag_from('./swagger-descriptions/sum-stars.yml')
 def sum_stars(username):
     gh_request = requests.get(f'{api_users_string}/{username}/repos')
     if gh_request.status_code == 404:
@@ -37,6 +41,7 @@ def sum_stars(username):
 # https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting must be described in Readme +
 # instructions how to generate GH token and use it within this app
 @app.route('/languages/<username>')
+@swag_from('./swagger-descriptions/languages-stats.yml')
 def languages_stats(username):
     gh_request = requests.get(f'{api_users_string}/{username}/repos')
     if gh_request.status_code == 404:

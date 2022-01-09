@@ -1,0 +1,15 @@
+Endpoint returning JSON showing repo name and number of stars.
+---
+parameters:
+  - name: username
+    in: path
+    type: string
+    required: true
+    description: Github username
+responses:
+  200:
+    description: A list of objects containing repo name and number of stars.
+  404:
+    description: User not found.
+  500:
+    description: Internal server error.
