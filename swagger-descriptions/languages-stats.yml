@@ -5,10 +5,10 @@ parameters:
     in: path
     type: string
     required: true
-    description: Github username
+    description: GitHub username
 responses:
   200:
-    description: JSON describing the most popular languages.
+    description: List of languages and bytes of code.
   404:
     description: User not found.
   500:

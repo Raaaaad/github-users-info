@@ -8,7 +8,7 @@ parameters:
     description: Github username
 responses:
   200:
-    description: JSON containing a sum of stars.
+    description: Number containing a sum of stars.
   404:
     description: User not found.
   500:
